@@ -1,0 +1,47 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+	}
+	repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+jar {
+	baseName = 'smetnerassosiates'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.data:spring-data-jpa:1.10.2.RELEASE')
+	compile('org.springframework.data:spring-data-rest-webmvc:2.5.2.RELEASE')
+	compile('org.springframework.boot:spring-boot-starter-data-rest')
+	compile("org.springframework.data:spring-data-rest-hal-browser")
+
+	compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.4.1')
+	compile('org.projectlombok:lombok:1.16.10')
+	compile('org.apache.httpcomponents:httpclient:4.5.2')
+	compile('org.jsoup:jsoup:1.9.2')
+	compile('com.google.code.gson:gson:2.7')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	runtime('org.hsqldb:hsqldb')
+}
