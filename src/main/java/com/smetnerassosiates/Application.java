@@ -1,7 +1,6 @@
 package com.smetnerassosiates;
 
-import com.smetnerassosiates.repositories.ThemeRepository;
-import com.smetnerassosiates.util.DBfiller;
+import com.smetnerassosiates.util.DataBaseFiller;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -15,8 +14,8 @@ public class Application {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
-		DBfiller dBfiller = context.getBean(DBfiller.class);
-		dBfiller.fill();
+		DataBaseFiller dataBaseFiller = context.getBean(DataBaseFiller.class);
+		dataBaseFiller.fill();
 	}
 
 }
